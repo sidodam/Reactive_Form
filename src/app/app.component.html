@@ -1,0 +1,67 @@
+<div class="w-1/2 m-auto">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2">
+        Firstname
+      </label>
+      <input formControlName="username"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        type="text" placeholder="Firstname">
+      <span *ngIf="!myForm.get('username')!.valid && myForm.get('username')!.touched " ngClass="text-red-600">please
+      </span>
+
+
+
+      <span ngClass="text-red-600" *ngIf="myForm.controls?.['username']?.errors?.['minlength']">
+        minimum length is 6
+      </span>
+
+      <span ngClass="text-red-600" *ngIf="myForm.controls?.['username']?.errors?.['maxlength']">
+        maxmimum length is 10
+      </span>
+
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2">
+        Lastname
+      </label>
+      <input formControlName="surname"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        type="text" placeholder="Lastname">
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2">
+        Email
+      </label>
+      <input formControlName="email"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        type="email" placeholder="email">
+      <span *ngIf="!myForm.get('email')!.valid && myForm.get('email')!.touched " ngClass="text-red-600">please
+        enter valid email</span>
+    </div>
+
+
+
+    <div class="mb-6">
+
+
+      <label for="default" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Language</label>
+      <select id="default"
+        class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option selected>Please select a language</option>
+        <option value="EN">English</option>
+        <option value="DE">German</option>
+        <option value="ES">Spanish</option>
+        <option value="FR">French</option>
+      </select>
+
+
+    </div>
+    <button type="submit"
+      ngClass="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      Sign In
+    </button>
+
+  </form>
+
+</div>
